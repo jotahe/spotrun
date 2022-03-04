@@ -1,5 +1,5 @@
 provider "aws" {
-  region = "${var.aws_region}"
+  region = "${var.AWS_REGION}"
   #Local profile with the credentials to aws cli
   profile = "DTP_TEST"
   default_tags {

@@ -89,7 +89,7 @@ resource "aws_spot_instance_request" "spotrunner" {
   security_groups = ["${aws_security_group.allow_https_ssh.id}"]
   subnet_id = "${aws_subnet.subspotrunner.id}"
 
-  user_data = templatefile("./spot.sh", {GITHUB_TOKEN = var.GITHUB_TOKEN, CONTROLLERURL = var.CONTROLLERURL, USERNAME = var.USERNAME, PASSWORD = var.PASSWORD, ORGGITHUB_TOKEN = var.ORGGITHUB_TOKEN, RUNNER_REPO = var.RUNNER_REPO})
+  user_data = templatefile("./spot.sh", {GITHUB_TOKEN = var.GITHUB_TOKEN, CONTROLLERURL = var.CONTROLLERURL, USERNAME = var.USERNAME, PASSWORD = var.PASSWORD, ORGGITHUB_TOKEN = var.ORGGITHUB_TOKEN, RUNNER_REPO = var.RUNNER_REPO, RUNNER_PATH = var.RUNNER_PATH, RUNNER_VERSION= var.RUNNER_VERSION})
   	tags = {
   		Name = "GitHub-Runner"
   	}

@@ -1,11 +1,11 @@
 # Define the region to deploy the infrastructure
-variable "aws_region" {
+variable "AWS_REGION" {
   description = "The AWS region to create things in."
   # North Virginia
   default     = "us-east-1"
 }
 # Define the availability zone where you want to deploy the subnet
-variable "aws_zone" {
+variable "AWS_ZONE" {
   description = "The AWS availability zone to place subnets"
   # North Virginia zone a
   default     = "us-east-1a"
@@ -24,10 +24,10 @@ variable "RUNNER_REPO"{
   default = "replace_this_with_your_repository"
 }
 
-# Workspace for the runner, we assign by the default the reponame as path inside the host server as workspace
+# Workspace for the runner, we assign by the default the actions-runner as path inside the host server as workspace, you can override by command line
 variable "RUNNER_PATH"{
   description = "workspace where the runner will be executing commands"
-  default = var.RUNNER_REPO
+  default = "actions-runner"
 }
 
 # Access token for interact with github, use secret variable from github to override, or pass by command line
@@ -37,7 +37,7 @@ variable "GITHUB_TOKEN"{
 }
 
 # Access token for interact with github organization, use secret variable from github to override, or pass by command line
-variable "orggithub_token"{
+variable "ORGGITHUB_TOKEN"{
   description = "organization github token"
   default = "replace_this_with_your_organization_token"
 }
